@@ -1,0 +1,17 @@
+## Data sources in dbt
+
+1. Sources: 
+    - Source system definition to a database and schema, table or view from the database and schema
+2. Seeds: 
+    - using CSV files into designated folders and load into table with command: `dbt seed`. However, not recommended approach
+    by design
+3. Created data: 
+    - Data generated via logic. EG: date dimensions over the period
+    - These data are treated as normal models
+4. Direct harcoded references:
+    - Hardcoded references to actual database tables. EG querying with direct table name
+    - Discard this approach and use dbt's source and references. This defeats dbt's feature such as tracebility and
+        and visualizing dependencies (lineage), makes dbt unable to generate documentation.
+
+NOTE: Right approach of using input defined sources in terms of dbt's `sources` and `seeds` and build first layer of
+dbt models on top of them, and continue the transformation pipeline, referncing previous models using `ref` function.
