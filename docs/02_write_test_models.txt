@@ -1,0 +1,7 @@
+## Write and test transformation models
+- Generate models (SQL files) that queries from target source system
+- Run: 
+    -- Command executes and creates models in the database schema defined
+    dbt run
+- Schedule a job to run the command in targetted environment
+- 

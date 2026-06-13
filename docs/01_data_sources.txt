@@ -15,3 +15,23 @@
 
 NOTE: Right approach of using input defined sources in terms of dbt's `sources` and `seeds` and build first layer of
 dbt models on top of them, and continue the transformation pipeline, referncing previous models using `ref` function.
+
+## Yaml file for data source retrieval
+- Naming convention: Start filename with source first and then the content
+- When creating models, we need to provide clarity in informaiton of model
+
+- Create a yml file to define the data source
+--> Example:
+
+    version: 2
+    sources:
+      - name: mpk_bank
+        database: PORTFOLIO_TRACKER
+        schema: SOURCES_DATA
+        tables:
+          - name: MPK_BANK_POSITION
+
+- Here, the `version: 2` is mandatory which informs dbt that this YAML file
+    uses second version of dbt YAML file specificaiton
+- Declare source system with database and table name
+- 
