@@ -1,0 +1,7 @@
+version: 2
+sources:
+    - name: bank_co
+      database: PORTFOLIO_TRACKER
+      schema: SOURCE_DATA
+      tables:
+        - name: MPK_BANK_POSITION
