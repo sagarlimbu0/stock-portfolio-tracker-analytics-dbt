@@ -1,0 +1,11 @@
+
+    
+    
+
+
+
+select ACCOUNTID
+from PORTFOLIO_TRACKER.SOURCE_DATA.MPK_BANK_POSITION
+where ACCOUNTID is null
+
+

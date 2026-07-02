@@ -1,0 +1,11 @@
+
+    
+    
+
+
+
+select EXCHANGE
+from PORTFOLIO_TRACKER.SOURCE_DATA.MPK_BANK_POSITION
+where EXCHANGE is null
+
+

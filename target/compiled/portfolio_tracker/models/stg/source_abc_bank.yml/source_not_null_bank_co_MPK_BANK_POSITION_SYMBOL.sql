@@ -1,0 +1,11 @@
+
+    
+    
+
+
+
+select SYMBOL
+from PORTFOLIO_TRACKER.SOURCE_DATA.MPK_BANK_POSITION
+where SYMBOL is null
+
+

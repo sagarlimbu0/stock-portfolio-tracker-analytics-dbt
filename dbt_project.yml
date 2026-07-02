@@ -30,7 +30,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 # directory as views. These settings can be overridden in the individual model
 # files using the `{{ config(...) }}` macro.
 models:
-  portfolio_tracker:
-    # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view
+  portfolio_tracker: # By default, create models as views by default in targetted database
+    +materialized: view
+    stg:
+      +materialized: table
+      +schema: stg
+    intermediate:
+      +materialized: table
+      +schema: intermediate
+    

@@ -1,0 +1,21 @@
+## Data storage layer:
+- Using snapshot and insert-only ingestion into history tables
+- Configuraiton required to send records to targetted schemas only
+- Difference between snapshot and history tables:
+    - snapshots are saved in snapshot folder which is global; every environment can use snapshots
+    - history tables are implemented with normal models saved in staging folders which is further 
+        saved for different environment
+- Configuration in main `dbt_project.yml` file
+    - EG: 
+        snapshots:
+          portfolio_tracker:
+            +target_schema: snapshots
+
+- Mart layer
+    - EG:
+        marts:
+          portfolio:
+            +materialized: table
+            +schema: MART_PORTFOLIO
+
+

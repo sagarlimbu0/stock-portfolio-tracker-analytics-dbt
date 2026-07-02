@@ -1,0 +1,13 @@
+## Generate docs of the project
+- Run the command:
+    dbt docs generate
+
+1. dbt cloud:
+- Location for dbt-cloud: upper-left-hand part of DEV environment
+
+2. dbt core:
+- Location for dbt-core: 
+    - Compiles your project and queries on location: project dir -> target -> catalog.json
+    - Command:
+        -> dbt docs serve:
+        - Opens web browser to render project's documentation portal and lineage

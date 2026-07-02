@@ -1,0 +1,11 @@
+
+    
+    
+
+
+
+select QUANTITY
+from PORTFOLIO_TRACKER.SOURCE_DATA.MPK_BANK_POSITION
+where QUANTITY is null
+
+

@@ -1,4 +1,4 @@
--- FACT: Calculate the measurement for the positions and use in report
+-- FACT: Calculate the measurement for the positions to generate unrealized profit and use in report
 
 SELECT *,
     POSITION_VALUE - COST_BASE as "UNREALIZED_PROFIT",

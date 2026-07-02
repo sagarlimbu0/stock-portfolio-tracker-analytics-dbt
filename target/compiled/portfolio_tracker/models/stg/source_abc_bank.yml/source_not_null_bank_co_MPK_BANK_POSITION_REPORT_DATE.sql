@@ -1,0 +1,11 @@
+
+    
+    
+
+
+
+select REPORT_DATE
+from PORTFOLIO_TRACKER.SOURCE_DATA.MPK_BANK_POSITION
+where REPORT_DATE is null
+
+

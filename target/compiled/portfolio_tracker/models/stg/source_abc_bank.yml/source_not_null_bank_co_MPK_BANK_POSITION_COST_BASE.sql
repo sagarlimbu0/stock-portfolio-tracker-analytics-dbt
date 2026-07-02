@@ -1,0 +1,11 @@
+
+    
+    
+
+
+
+select COST_BASE
+from PORTFOLIO_TRACKER.SOURCE_DATA.MPK_BANK_POSITION
+where COST_BASE is null
+
+

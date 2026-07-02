@@ -1,0 +1,19 @@
+## To define the criteria with expected outcome with test cases
+
+version: 2 # Ver:2 as defined of YAML file in use
+models:
+  - name: POSITION_MPK_BANK
+    description: Position of stock portfolio in BANK
+    columns:
+      - name: UNREALIZED_PROFIT
+        description: Unrealized profit on the position stocks
+        tests:
+          - not_null
+    
+      - name: UNREALIZED_PROFIT_PCT
+        description: Unrealized profit percent on the position of stocks
+        tests:
+          - not_null
+        
+      
+        

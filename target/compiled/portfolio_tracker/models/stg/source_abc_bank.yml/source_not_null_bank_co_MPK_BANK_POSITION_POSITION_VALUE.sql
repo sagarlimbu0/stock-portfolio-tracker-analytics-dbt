@@ -1,0 +1,11 @@
+
+    
+    
+
+
+
+select POSITION_VALUE
+from PORTFOLIO_TRACKER.SOURCE_DATA.MPK_BANK_POSITION
+where POSITION_VALUE is null
+
+

@@ -1,0 +1,37 @@
+## Code maintainability and Best practices
+- Maintaining code to reduce redundant, duplicate work
+
+## Best practices:
+1. Removing duplicated and redundant workflow
+    - Reduces the need to re-read, applying the least surprise principle (LSP)
+2. use meaningful model names, prefixes, and suffixes
+    - using good layered architecture with consistent patterns
+    - Use Common Table Expression (CTE) and integrate the steps at top to keep standard
+
+3. Function specific
+    - One model should do one specific task well
+    - Single Responsibility principle(RSP)
+    - Name of the model should be meaningful to explain its functionality
+
+4. Low model complexity
+- Keep dependencies ordered and going only in ONE directon, from one LAYER to next 
+    in the architecture
+- Keep the data flow as DAG; avoid circular dependencies jumping across multiple layers; 
+    dependencies on wrong direction
+- EG: data flow architecture
+    source system -> staging -> intermediate -> marts
+
+5. Consistency is very Important
+- Being consistent when building dw architecture is crucial
+- Important especially with big project and several dev working on same project.
+- Flexible to refactor at small cost when changes/updates are required when project EVOLVES
+
+
+## refactor model to be descriptive as possible
+- Inside YAML file, we can define the columns/fields with description to make it more readable
+    and understandable
+- List all the columns and descriptions- business keys, foreign keys, important metrics, and
+    categories
+- Business rules that are epxected
+- 
+

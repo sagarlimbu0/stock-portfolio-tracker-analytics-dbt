@@ -1,0 +1,38 @@
+## Define Schema for maintainability
+- Configuraiton on main file `dbt_project.yml'. Includes essential and general configuration information for the project
+- Update version when performing mionr releases or leave as it is
+- Don't change `config version`, as of now 6/13/2026 using version `2` since version `1` deprecated
+- `profile` used in dbt-core to define the project
+
+# Set configuration for specific Schema
+- Set the config setttings that will be applied on targetted schema
+- In dbt, file and folder names are CASE-SENSITIVE
+- Important to define custom SCHEMA, if not it will create table/views set on conneciton configuration
+- EG:
+    models:
+      PORTFOLIO_TRACKER:
+        +materialized: view
+        STG: # Staging layer and all files under models models/STG
+          +materialized: table
+          schema: STG
+        
+        INTERMEDIATE:
+          +materialized: table
+          schema: INTERMEDIATE
+
+- Here, by default at top, it will create VIEWS for database 'PORTFOLIO_TRACKER'
+- Using '+' will be optional. This is for readability
+
+# Overridde macros
+- DBT core has built-in default `generate_schema_name` macro used to concatenate:
+    - EG: base_schema + '_' + custom_schema
+- By Default, dbt-core uses in-built macro to CONCATENATE base_schema and custom_schema
+- To overide the concatenation of schea name
+
+{% macro generate_schema_name(custom_schema_name, node) -%}
+    {%- if custom_schema_name is none -%}
+        {{ target.schema }}
+    {%- else -%}
+        {{ custom_schema_name | trim }}
+    {%- endif -%}
+{%- endmacro %}

@@ -1,0 +1,56 @@
+## Run tests on dbt models
+- There are two types of tests that can be performed with dbt
+- We can define generic tests and configure in YAML config file
+- Tests are useful when writing sources and models, especially when data is not fully known.
+- Tests allows to express and verify the assumptions
+- Important to determine the constraints and nullability of fields, Foreign key and Referential REFERENTIAL_INTEGRITY
+    when designing ETL on data
+
+1. Generic tests; 
+    - Also called `schema` tests. These tests can be applied to any model or any column in 
+    any model by naming them in a YAML configuration file.
+    - EG: testing if a column is not NULL or has UNIQUE values
+    - We can define our OWN custom texts; Test whether a HASH column does not incur a hash conflict
+2. Singular Tests:
+    - Most generic tests; We can test everything we can express with SQL
+    - EG: writing sql query where returned rows DO NOT passes your test, individual calculations,
+        full-table matches or subsets of columns in multiple tables
+3. Dbt with in-built tests:
+    - not_null: tests that a column is NEVER NULL in the table
+    - unique: tests that values in a column are unique
+    - relationships: tests the REFERENTIAL_INTEGRITY between two tables; each value of foreign key
+        in table exists in named column of named table
+    - accepted_values: tests that values in column are one of the listed values
+
+4. Singular tests:
+    - Writtern for specific use cases when generic test is not available and creating new one does
+        not help
+    - Similar to normal models, but stored in `test` folder, and executed when we run:
+        `dbt test`
+
+5. DBT build
+- runs both command: dbt run and dbt test together
+
+##########################################################
+### Running the Tests
+- Go to command line:
+    dbt test
+
+
+## Run tests on specific sources
+->
+    dbt test -s source:*
+
+## Run tests on all TABLES in `abc_bank` source:
+->
+    dbt test -s source:abc_bank.*
+
+## Run tests on the SOURCE: 'ABC_BANK_POSITION' on TABLE 'abc_bank' source:
+->
+    dbt test -s source:abc_bank.ABC_BANK_POSITION
+
+## Test on specific model
+- specify the model name. It will execute the model and all the tests defined in the yaml file
+->
+    dbt test -s <model_name>
+
